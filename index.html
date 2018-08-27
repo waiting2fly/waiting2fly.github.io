@@ -84,7 +84,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/16/111/">111</a>
+      <a class="article-title" href="/2018/08/16/111/">a=a++问题引发的思考</a>
     </h1>
   
 
@@ -92,12 +92,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>hello hexo!</p>
+        <p>使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）：</p>
+<p>0: iconst_1  将数值1压入栈顶<br>1: istore_1  栈顶值1存入局部变量表的第一个slot中<br>2: iload_1   将第1个slot所存的变量放入栈顶<br>3: iinc 1, 1  将第1个slot所存的变量自加1<br>6: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中</p>
+<p>看到此处，应该恍然大悟，问题就出在iinc这条指令上，它操作的是将局部变量表中的值加一，而非是操作数栈中的变量值加一。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/16/111/" data-id="cjkzlcj3f0000q47imz7iq3mh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/16/111/" data-id="cjlcdhfkr0001u87iocvit6op" class="article-share-link">Share</a>
       
       
     </footer>
@@ -142,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/16/hello-world/" data-id="cjkzlcj3m0001q47ikxrwxi0a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/16/hello-world/" data-id="cjlcdhfkl0000u87i1jynushj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -183,7 +185,7 @@
       <ul>
         
           <li>
-            <a href="/2018/08/16/111/">111</a>
+            <a href="/2018/08/16/111/">a=a++问题引发的思考</a>
           </li>
         
           <li>

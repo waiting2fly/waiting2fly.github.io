@@ -5,20 +5,20 @@
   
 
   
-  <title>111 | Github博客</title>
+  <title>a=a++问题引发的思考 | Github博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hello hexo!">
+  <meta name="description" content="使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）： 0: iconst_1  将数值1压入栈顶1: istore_1  栈顶值1存入局部变量表的第一个slot中2: iload_1   将第1个slot所存的变量放入栈顶3: iinc 1, 1  将第1个slot所存的变量自加16: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中 看到此处，应">
 <meta name="keywords" content="blog">
 <meta property="og:type" content="article">
-<meta property="og:title" content="111">
+<meta property="og:title" content="a=a++问题引发的思考">
 <meta property="og:url" content="http://yoursite.com/2018/08/16/111/index.html">
 <meta property="og:site_name" content="Github博客">
-<meta property="og:description" content="hello hexo!">
+<meta property="og:description" content="使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）： 0: iconst_1  将数值1压入栈顶1: istore_1  栈顶值1存入局部变量表的第一个slot中2: iload_1   将第1个slot所存的变量放入栈顶3: iinc 1, 1  将第1个slot所存的变量自加16: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中 看到此处，应">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-16T15:15:41.252Z">
+<meta property="og:updated_time" content="2018-08-27T14:21:56.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="111">
-<meta name="twitter:description" content="hello hexo!">
+<meta name="twitter:title" content="a=a++问题引发的思考">
+<meta name="twitter:description" content="使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）： 0: iconst_1  将数值1压入栈顶1: istore_1  栈顶值1存入局部变量表的第一个slot中2: iload_1   将第1个slot所存的变量放入栈顶3: iinc 1, 1  将第1个slot所存的变量自加16: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中 看到此处，应">
   
     <link rel="alternate" href="/atom.xml" title="Github博客" type="application/atom+xml">
   
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      111
+      a=a++问题引发的思考
     </h1>
   
 
@@ -91,12 +91,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>hello hexo!</p>
+        <p>使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）：</p>
+<p>0: iconst_1  将数值1压入栈顶<br>1: istore_1  栈顶值1存入局部变量表的第一个slot中<br>2: iload_1   将第1个slot所存的变量放入栈顶<br>3: iinc 1, 1  将第1个slot所存的变量自加1<br>6: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中</p>
+<p>看到此处，应该恍然大悟，问题就出在iinc这条指令上，它操作的是将局部变量表中的值加一，而非是操作数栈中的变量值加一。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/16/111/" data-id="cjkzlcj3f0000q47imz7iq3mh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/16/111/" data-id="cjlcdhfkr0001u87iocvit6op" class="article-share-link">Share</a>
       
       
     </footer>
@@ -145,7 +147,7 @@
       <ul>
         
           <li>
-            <a href="/2018/08/16/111/">111</a>
+            <a href="/2018/08/16/111/">a=a++问题引发的思考</a>
           </li>
         
           <li>
