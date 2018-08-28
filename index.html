@@ -70,6 +70,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-为什么数组没有实现Iterable接口，但可以使用foreach语句遍历" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/" class="article-date">
+  <time datetime="2018-08-27T14:29:53.000Z" itemprop="datePublished">2018-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/">为什么数组没有实现Iterable接口，但可以使用foreach语句遍历</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Java中，对于数组为什么能够使用foreach语句一直感觉很困惑。</p>
+<p>对于能够使用foreach语句进行遍历的对象，只有两种情况，其中一种是遍历对象必须实现Iterable接口，实现ierator()方法，这是对象使用foreach语句的前提。另外一种情况就是特殊对象数组。那么对于数组可以使用foreach该如何去理解呢？</p>
+<p>首先需要说明的是，实现了java.lang.Iterable接口的对象可以用for-each去遍历，但是能用for-each去遍历的不一定实现了该接口，比如数组这个特殊对象就是这一特殊情况。但是网上关于这方面的资料很少，自己只能说下自己的理解。</p>
+<p>我认为数组对象之所以能够使用foreach语句进行遍历元素，是因为JVM在底层将对于数组的foreach循环转换为对于这个数组每一个的循环引用。类似在底层转化成了普通的for语句一样，得以保证我们使用foreach语句时候能够正确的进行遍历。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/" data-id="cjlcj9gho0002b07ihjih9svq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-111" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/16/111/" class="article-date">
@@ -99,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/16/111/" data-id="cjlcdhfkr0001u87iocvit6op" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/16/111/" data-id="cjlcj9ghm0001b07i3wsie4ux" class="article-share-link">Share</a>
       
       
     </footer>
@@ -144,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/16/hello-world/" data-id="cjlcdhfkl0000u87i1jynushj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/16/hello-world/" data-id="cjlcj9ghh0000b07i2zsocmjl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -183,6 +223,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/">为什么数组没有实现Iterable接口，但可以使用foreach语句遍历</a>
+          </li>
         
           <li>
             <a href="/2018/08/16/111/">a=a++问题引发的思考</a>

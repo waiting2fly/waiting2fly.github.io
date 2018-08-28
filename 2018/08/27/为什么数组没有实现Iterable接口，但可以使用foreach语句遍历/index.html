@@ -5,20 +5,20 @@
   
 
   
-  <title>a=a++问题引发的思考 | Github博客</title>
+  <title>为什么数组没有实现Iterable接口，但可以使用foreach语句遍历 | Github博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）： 0: iconst_1  将数值1压入栈顶1: istore_1  栈顶值1存入局部变量表的第一个slot中2: iload_1   将第1个slot所存的变量放入栈顶3: iinc 1, 1  将第1个slot所存的变量自加16: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中 看到此处，应">
+  <meta name="description" content="在Java中，对于数组为什么能够使用foreach语句一直感觉很困惑。 对于能够使用foreach语句进行遍历的对象，只有两种情况，其中一种是遍历对象必须实现Iterable接口，实现ierator()方法，这是对象使用foreach语句的前提。另外一种情况就是特殊对象数组。那么对于数组可以使用foreach该如何去理解呢？ 首先需要说明的是，实现了java.lang.Iterable接口的对象可">
 <meta name="keywords" content="blog">
 <meta property="og:type" content="article">
-<meta property="og:title" content="a=a++问题引发的思考">
-<meta property="og:url" content="http://yoursite.com/2018/08/16/111/index.html">
+<meta property="og:title" content="为什么数组没有实现Iterable接口，但可以使用foreach语句遍历">
+<meta property="og:url" content="http://yoursite.com/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/index.html">
 <meta property="og:site_name" content="Github博客">
-<meta property="og:description" content="使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）： 0: iconst_1  将数值1压入栈顶1: istore_1  栈顶值1存入局部变量表的第一个slot中2: iload_1   将第1个slot所存的变量放入栈顶3: iinc 1, 1  将第1个slot所存的变量自加16: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中 看到此处，应">
+<meta property="og:description" content="在Java中，对于数组为什么能够使用foreach语句一直感觉很困惑。 对于能够使用foreach语句进行遍历的对象，只有两种情况，其中一种是遍历对象必须实现Iterable接口，实现ierator()方法，这是对象使用foreach语句的前提。另外一种情况就是特殊对象数组。那么对于数组可以使用foreach该如何去理解呢？ 首先需要说明的是，实现了java.lang.Iterable接口的对象可">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-27T14:21:56.826Z">
+<meta property="og:updated_time" content="2018-08-27T14:29:53.572Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="a=a++问题引发的思考">
-<meta name="twitter:description" content="使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）： 0: iconst_1  将数值1压入栈顶1: istore_1  栈顶值1存入局部变量表的第一个slot中2: iload_1   将第1个slot所存的变量放入栈顶3: iinc 1, 1  将第1个slot所存的变量自加16: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中 看到此处，应">
+<meta name="twitter:title" content="为什么数组没有实现Iterable接口，但可以使用foreach语句遍历">
+<meta name="twitter:description" content="在Java中，对于数组为什么能够使用foreach语句一直感觉很困惑。 对于能够使用foreach语句进行遍历的对象，只有两种情况，其中一种是遍历对象必须实现Iterable接口，实现ierator()方法，这是对象使用foreach语句的前提。另外一种情况就是特殊对象数组。那么对于数组可以使用foreach该如何去理解呢？ 首先需要说明的是，实现了java.lang.Iterable接口的对象可">
   
     <link rel="alternate" href="/atom.xml" title="Github博客" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-111" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-为什么数组没有实现Iterable接口，但可以使用foreach语句遍历" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/16/111/" class="article-date">
-  <time datetime="2018-08-16T15:15:34.000Z" itemprop="datePublished">2018-08-16</time>
+    <a href="/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/" class="article-date">
+  <time datetime="2018-08-27T14:29:53.000Z" itemprop="datePublished">2018-08-27</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      a=a++问题引发的思考
+      为什么数组没有实现Iterable接口，但可以使用foreach语句遍历
     </h1>
   
 
@@ -91,14 +91,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）：</p>
-<p>0: iconst_1  将数值1压入栈顶<br>1: istore_1  栈顶值1存入局部变量表的第一个slot中<br>2: iload_1   将第1个slot所存的变量放入栈顶<br>3: iinc 1, 1  将第1个slot所存的变量自加1<br>6: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中</p>
-<p>看到此处，应该恍然大悟，问题就出在iinc这条指令上，它操作的是将局部变量表中的值加一，而非是操作数栈中的变量值加一。</p>
+        <p>在Java中，对于数组为什么能够使用foreach语句一直感觉很困惑。</p>
+<p>对于能够使用foreach语句进行遍历的对象，只有两种情况，其中一种是遍历对象必须实现Iterable接口，实现ierator()方法，这是对象使用foreach语句的前提。另外一种情况就是特殊对象数组。那么对于数组可以使用foreach该如何去理解呢？</p>
+<p>首先需要说明的是，实现了java.lang.Iterable接口的对象可以用for-each去遍历，但是能用for-each去遍历的不一定实现了该接口，比如数组这个特殊对象就是这一特殊情况。但是网上关于这方面的资料很少，自己只能说下自己的理解。</p>
+<p>我认为数组对象之所以能够使用foreach语句进行遍历元素，是因为JVM在底层将对于数组的foreach循环转换为对于这个数组每一个的循环引用。类似在底层转化成了普通的for语句一样，得以保证我们使用foreach语句时候能够正确的进行遍历。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/16/111/" data-id="cjlcj9ghm0001b07i3wsie4ux" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/" data-id="cjlcj9gho0002b07ihjih9svq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -107,19 +108,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          为什么数组没有实现Iterable接口，但可以使用foreach语句遍历
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/16/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/08/16/111/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">a=a++问题引发的思考</div>
     </a>
   
 </nav>
