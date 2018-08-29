@@ -5,19 +5,20 @@
   
 
   
-  <title>Github博客</title>
+  <title>Java 的静态工厂方法 | Github博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tech">
+  <meta name="description" content="序：什么是静态工厂方法Effective Java2.1 静态工厂方法与构造器不同的第一优势在于，它们有名字2.2 第二个优势，不用每次被调用时都创建新对象2.3 第三个优势，可以返回原返回类型的子类2.4 第四个优势，在创建带泛型的实例时，能使代码变得简洁除此之外3.1 可以有多个参数相同但名称不同的工厂方法3.2 可以减少对外暴露的属性3.3 多了一层控制，方便统一修改总结  序：什么是静态工">
 <meta name="keywords" content="blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Github博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 的静态工厂方法">
+<meta property="og:url" content="http://yoursite.com/2018/08/29/Java-的静态工厂方法/index.html">
 <meta property="og:site_name" content="Github博客">
-<meta property="og:description" content="tech">
+<meta property="og:description" content="序：什么是静态工厂方法Effective Java2.1 静态工厂方法与构造器不同的第一优势在于，它们有名字2.2 第二个优势，不用每次被调用时都创建新对象2.3 第三个优势，可以返回原返回类型的子类2.4 第四个优势，在创建带泛型的实例时，能使代码变得简洁除此之外3.1 可以有多个参数相同但名称不同的工厂方法3.2 可以减少对外暴露的属性3.3 多了一层控制，方便统一修改总结  序：什么是静态工">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-29T13:32:52.334Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Github博客">
-<meta name="twitter:description" content="tech">
+<meta name="twitter:title" content="Java 的静态工厂方法">
+<meta name="twitter:description" content="序：什么是静态工厂方法Effective Java2.1 静态工厂方法与构造器不同的第一优势在于，它们有名字2.2 第二个优势，不用每次被调用时都创建新对象2.3 第三个优势，可以返回原返回类型的子类2.4 第四个优势，在创建带泛型的实例时，能使代码变得简洁除此之外3.1 可以有多个参数相同但名称不同的工厂方法3.2 可以减少对外暴露的属性3.3 多了一层控制，方便统一修改总结  序：什么是静态工">
   
     <link rel="alternate" href="/atom.xml" title="Github博客" type="application/atom+xml">
   
@@ -68,9 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Java-的静态工厂方法" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Java-的静态工厂方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/29/Java-的静态工厂方法/" class="article-date">
   <time datetime="2018-08-29T13:11:14.000Z" itemprop="datePublished">2018-08-29</time>
@@ -83,8 +82,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/29/Java-的静态工厂方法/">Java 的静态工厂方法</a>
+    <h1 class="article-title" itemprop="name">
+      Java 的静态工厂方法
     </h1>
   
 
@@ -191,172 +190,19 @@ bindUI(tester);
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-java中length-length-size-区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/29/java中length-length-size-区别/" class="article-date">
-  <time datetime="2018-08-28T17:03:39.000Z" itemprop="datePublished">2018-08-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/29/java中length-length-size-区别/">java中length,length(),size()区别</a>
-    </h1>
+    <a href="/2018/08/29/java中length-length-size-区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java中length,length(),size()区别</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1 java中的length属性是针对数组说的,比如说你声明了一个数组,想知道这个数组的长度则用到了length这个属性.<br>2 java中的length()方法是针对字符串String说的,如果想看这个字符串的长度则用到length()这个方法.<br>3.java中的size()方法是针对泛型集合说的,如果想看这个泛型有多少个元素,就调用此方法来查看!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/29/java中length-length-size-区别/" data-id="cjlf6kzpa0001487ie48tsm2s" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-为什么数组没有实现Iterable接口，但可以使用foreach语句遍历" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/" class="article-date">
-  <time datetime="2018-08-27T14:29:53.000Z" itemprop="datePublished">2018-08-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/">为什么数组没有实现Iterable接口，但可以使用foreach语句遍历</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在Java中，对于数组为什么能够使用foreach语句一直感觉很困惑。</p>
-<p>对于能够使用foreach语句进行遍历的对象，只有两种情况，其中一种是遍历对象必须实现Iterable接口，实现ierator()方法，这是对象使用foreach语句的前提。另外一种情况就是特殊对象数组。那么对于数组可以使用foreach该如何去理解呢？</p>
-<p>首先需要说明的是，实现了java.lang.Iterable接口的对象可以用for-each去遍历，但是能用for-each去遍历的不一定实现了该接口，比如数组这个特殊对象就是这一特殊情况。但是网上关于这方面的资料很少，自己只能说下自己的理解。</p>
-<p>我认为数组对象之所以能够使用foreach语句进行遍历元素，是因为JVM在底层将对于数组的foreach循环转换为对于这个数组每一个的循环引用。类似在底层转化成了普通的for语句一样，得以保证我们使用foreach语句时候能够正确的进行遍历。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/" data-id="cjlf6kzpe0003487ie6ksmotk" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-111" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/16/111/" class="article-date">
-  <time datetime="2018-08-16T15:15:34.000Z" itemprop="datePublished">2018-08-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/16/111/">a=a++问题引发的思考</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）：</p>
-<p>0: iconst_1  将数值1压入栈顶<br>1: istore_1  栈顶值1存入局部变量表的第一个slot中<br>2: iload_1   将第1个slot所存的变量放入栈顶<br>3: iinc 1, 1  将第1个slot所存的变量自加1<br>6: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中</p>
-<p>看到此处，应该恍然大悟，问题就出在iinc这条指令上，它操作的是将局部变量表中的值加一，而非是操作数栈中的变量值加一。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/16/111/" data-id="cjlf6kzp60000487iyep57uc0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/16/hello-world/" class="article-date">
-  <time datetime="2018-08-16T13:24:56.434Z" itemprop="datePublished">2018-08-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/16/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/16/hello-world/" data-id="cjlf6kzpd0002487iz86lfkb1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
