@@ -70,6 +70,145 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Java核心技术-对象与类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/05/Java核心技术-对象与类/" class="article-date">
+  <time datetime="2018-09-05T12:08:41.000Z" itemprop="datePublished">2018-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/05/Java核心技术-对象与类/">Java核心技术-对象与类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1 面向对象程序设计概述<br>面向对象的程序是由对象组成的，每个对象包含对用户公开的特定功能部分和隐藏的实现部分。</p>
+<p>1.1 类<br>类是构造对象的模板或蓝图，由类构造对象的过程称为创建类的实例。</p>
+<p>封装：　</p>
+<p>从形式上看，是将数据和行为组合在一个包中，并对对象的使用者隐藏了数据的实现方式。</p>
+<p>对象中的数据称为实例域，操纵数据的过程称为方法。</p>
+<p>对于每个特定类实例（对象）都有一组特定的实例域值，这些值的集合就是这个对象的当前状态。</p>
+<p>实现封装的关键在于绝对不能让类中的方法直接地访问其它类的实例域，程序仅能通过对象的方法与对象数据进行交互。</p>
+<p>在Java中，所有类都源于一个“神通广大的超类”，它就是Object。</p>
+<p>通过扩展一个类来建立另一个类的过程称为继承。</p>
+<p>1.2 对象<br>对象的三个主要特性：</p>
+<p>对象的行为——可以对对象施加哪些操作，或可以对对象施加哪些方法。</p>
+<p>对象的状态——当施加那些方法时，对象如何响应。</p>
+<p>对象的标识——如何辨别具有相同行为与状态的不同对象。</p>
+<p>1.3 识别类<br>识别类的简单规则是在分析问题的过程中寻找名词，而方法对应着动词。</p>
+<p>1.4 类之间的关系<br>在类之间，最常见的关系有</p>
+<p>*依赖（“uses-a”)：一个类的方法操纵另一个类的对象，我们就说一个类依赖于另一个类。减少依赖即减少耦合。</p>
+<p>*聚合（”has-a”）：类A的对象包含类B的对象。</p>
+<p>*继承（”is-a”）：用于表示特殊与一般关系的。</p>
+<p>2 使用预定义类<br>2.1 对象与对象变量<br>要想使用对象，就必须首先构造对象，并指定其初始状态。构造器是一种特殊的方法，用来构造并初始化对象。</p>
+<p>构造器的名字应该与类名相同。</p>
+<p>明白对象与对象变量之间的区别。</p>
+<p>一定要认识到：一个对象变量并没有实际包含一个对象，而仅仅引用一个对象。任何对象变量的值都是对存储在另外一个地方的一个对象的引用。</p>
+<p>局部变量不会自动初始化为null，而必须通过调用new或将他们设置为null进行初始化。</p>
+<p>2.2 LocalDate类<br>Java中，Date类用来表示时间点，LocalDate类用来表示日历表示法。</p>
+<p>不要使用构造器来构造LocalDate类，应该使用静态工厂方法代表你调用构造器：LocalDate.now()会构造一个表示构造这个对象时的日期对象。</p>
+<p>2.3 更改器方法与访问器方法<br>类似于String类的toUpperCase方法，调用这个方法时原对象不变，会返回一个将原对象中所有字符大写的新对象。</p>
+<p>相比较而言，那些会更改原对象状态的方法称为更改器方法。（GregorianCalendar.add）</p>
+<p>访问器方法：只访问对象而不修改对象的方法。</p>
+<p>3.用户自定义类<br>实例域（private）+实例方法</p>
+<p>3.1 构造器<br>*构造器与类同名</p>
+<p>*每个类可以有一个以上的构造器</p>
+<p>*构造器可以有0、1个或多个参数</p>
+<p>*构造器没有返回值</p>
+<p>*构造器总是伴随着new操作一起调用</p>
+<p>3.2 隐式参数与显示参数<br>一般方法有两种参数，第一种参数称为隐式参数，出现在方法名前的类对象。第二种显示参数是位于方法名后面括号中的数值。</p>
+<p>在每一个方法中，关键字this表示隐式参数。</p>
+<p>3.3 封装的优点<br>*一个私有的数据域</p>
+<p>*一个公有的域访问器方法</p>
+<p>*一个公有的域更改器方法</p>
+<p>注意不要编写返回引用可变对象的访问器方法，如果需要返回一个可变对象的引用，应该首先对它进行克隆。</p>
+<p>public Date getHireDay(){</p>
+<p>　　return (Date)hireDay.clone();</p>
+<p>}</p>
+<p>3.4 基于类的访问权限<br>一个方法可以访问所属类的所有对象的私有域数据。</p>
+<p>3.5 final实例域<br>final修饰符大都应用于基本类型域，或不可变类的域。<br>对于可变的类,final关键字只表示存储在可变类对象中的对象引用不会再指向其它类对象，不过这个对象仍可以更改。（StringBuilder）</p>
+<p>4 静态域与静态方法<br>4.1 静态域（类域）<br>如果将域定义为static，那么每个类中只有一个这样的域。即使没有一个类对象存在，静态域也存在。它属于类，而不属于任何独立的对象。</p>
+<p>4.2 静态常量<br>Math.PI、System.out</p>
+<p>公有常量只能访问不能修改：public final</p>
+<p>system类有一个setOut方法看，可以将System.out（final变量）设置为不同的流，因为setOut方法是一个本地方法，不是用Java语言实现的，可以绕开Java语言的存取控制机制。</p>
+<p>4.3 静态方法<br>静态方法是一种不能向对象实施操作的方法。</p>
+<p>静态方法不能访问类的实例域，但是可以访问自身类中的静态域。</p>
+<p>使用静态方法的两种情况：</p>
+<ul>
+<li><p>一个方法不需要访问对象状态，其所需的参数都是通过显示参数提供（Math.pow）</p>
+</li>
+<li><p>一个方法只需要访问类的静态域</p>
+</li>
+</ul>
+<p>4.4 工厂方法<br>静态方法还有另一种常见的用途：静态工厂方法——不通过 new，而是用一个静态方法来对外提供自身实例的方法</p>
+<p>静态工厂构造对象和构造器构造对象的主要区别（更灵活）：</p>
+<p>1.可以命名构造器名称</p>
+<p>2.不用每次被调用时都创建新对象</p>
+<p>3.可以返回原返回类型的子类</p>
+<p>5 方法参数<br>参数传递给方法的两种方式：按值调用和按引用调用。</p>
+<p>一个方法可以修改传递引用所对应的变量值，而不能修改传递值调用所对应的变量值。</p>
+<p>Java采用按值调用。</p>
+<p>方法参数两种类型：</p>
+<p>*基本数据类型</p>
+<p>*对象引用</p>
+<p>Java中方法参数的使用情况：</p>
+<p>*一个方法不能修改一个基本数据类型的参数</p>
+<p>*一个方法可以改变一个对象参数的状态</p>
+<p>*一个方法不能让对象参数引用一个新的对象</p>
+<p>6 对象构造<br>6.1 重载<br>由编译器进行重载解析。</p>
+<p>方法签名：要完整地描述一个方法，需要指出方法名以及参数类型。（返回类型不是方法签名的一部分）</p>
+<p>6.2 默认域初始化<br>如果在构造器中没有显式地给域赋予初值，那么就会被自动地赋为默认值：数值为0、布尔值为false、对象引用为null。</p>
+<p>这是域与局部变量的主要不同点——局部变量没有默认初始化，必须显示的初始化局部变量。</p>
+<p>6.3 无参数构造器<br>如果类中提供了至少一个构造器，但是没有提供无参数的构造器，则在构造对象时没有提供参数就会被认为不合法。</p>
+<p>仅当类中没有提供任何构造器，系统才会提供一个默认构造器。</p>
+<p>6.4 调用另一个构造器<br>如果构造器的第一个语句形如this()，这个构造器将调用同一个类的另一个构造器。</p>
+<p>6.5 初始化块<br>初始化数据域的方法：</p>
+<p>1.在构造器中设置值</p>
+<p>2.在声明中赋值</p>
+<p>3.初始化块</p>
+<p>调用构造器初始化的步骤：</p>
+<p>所有数据域被初始化为默认值（静态域初始化）-&gt;数据域初始化语句-&gt;初始化块-&gt;构造器</p>
+<p>6.6 对象析构器与finalize方法<br>finalize方法将在垃圾回收器清除对象之前调用。</p>
+<p>如果某个资源需要在使用完毕后立刻关闭，可以应用一个close方法来完成相应的清理操作。</p>
+<p>7 包<br>使用包的主要原因是确保类名的唯一性。</p>
+<p>7.1 类的导入<br>一个类可以使用所属包中的所有类，以及其它包中的公有类。</p>
+<p>只能使用星号（<em>）导入一个包，而不能使用import java.</em>或import java.<em>.</em>导入以java为前缀的所有包。</p>
+<p>可以采用增加一个特定的包名解决两个包中共有类的引用问题。</p>
+<p>如果两个包中的两个相同名称的类都要引用，可以在每个类名前加上完整的包名。</p>
+<p>7.2 静态导入<br>import语句不仅可以导入类，还增加了导入静态方法和静态域的功能。</p>
+<p>7.3 将类放入包中<br>编译器对文件（带有文件分隔符和扩展名.java的文件）进行操作。而Java解释器加载类（带有.分隔符)</p>
+<p>7.4 包作用域<br>标记为public的部分可以被任意的类使用；标记为private的部分只能被定义它们的类使用。如果没有指定public或private，这个部分（类、方法、变量）可以被同一个包中的所有方法访问。</p>
+<p>8 类设计技巧<br>1.一定要保证数据私有</p>
+<p>2.一定要对数据初始化</p>
+<p>3.不要在类中使用过多的基本类型</p>
+<p>4.不是所有的域都需要独立的域访问器和域更改器</p>
+<p>5.将职责过多的类进行分解</p>
+<p>6.类名和方法名要能体现它们的职责</p>
+<p>7.优先使用不可变的类（考虑具体情况）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/05/Java核心技术-对象与类/" data-id="cjlp3nn940004nc7i9wh75au6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Java核心技术-Java的基本程序设计结构" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/09/03/Java核心技术-Java的基本程序设计结构/" class="article-date">
@@ -197,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/03/Java核心技术-Java的基本程序设计结构/" data-id="cjllnwo5g0002yk7itvoy7axh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/03/Java核心技术-Java的基本程序设计结构/" data-id="cjlp3nn910002nc7ilouqr78h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -292,7 +431,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/01/第2章—Java内存区域与内存溢出异常/" data-id="cjllnwo5k0006yk7ia6o0ci3j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/01/第2章—Java内存区域与内存溢出异常/" data-id="cjlp3nn980007nc7icrc2j1dd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -417,7 +556,7 @@ bindUI(tester);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/29/Java-的静态工厂方法/" data-id="cjllnwo5h0003yk7i3rn2wtly" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/29/Java-的静态工厂方法/" data-id="cjlp3nn8z0001nc7iy3phabm2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -454,7 +593,7 @@ bindUI(tester);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/29/java中length-length-size-区别/" data-id="cjllnwo5j0005yk7iguzums88" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/29/java中length-length-size-区别/" data-id="cjlp3nn930003nc7iwspq1yz3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -494,7 +633,7 @@ bindUI(tester);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/" data-id="cjllnwo5i0004yk7iuwnvtuqu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/" data-id="cjlp3nn950005nc7iti1kswdu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -533,7 +672,7 @@ bindUI(tester);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/16/111/" data-id="cjllnwo580000yk7ieoz1467j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/16/111/" data-id="cjlp3nn8s0000nc7i3w3t0mld" class="article-share-link">Share</a>
       
       
     </footer>
@@ -578,7 +717,7 @@ bindUI(tester);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/16/hello-world/" data-id="cjllnwo5d0001yk7ioli9eyrp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/16/hello-world/" data-id="cjlp3nn970006nc7ien2x79uf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -619,6 +758,10 @@ bindUI(tester);
       <ul>
         
           <li>
+            <a href="/2018/09/05/Java核心技术-对象与类/">Java核心技术-对象与类</a>
+          </li>
+        
+          <li>
             <a href="/2018/09/03/Java核心技术-Java的基本程序设计结构/">Java核心技术-Java的基本程序设计结构</a>
           </li>
         
@@ -632,10 +775,6 @@ bindUI(tester);
         
           <li>
             <a href="/2018/08/29/java中length-length-size-区别/">java中length,length(),size()区别</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/">为什么数组没有实现Iterable接口，但可以使用foreach语句遍历</a>
           </li>
         
       </ul>
