@@ -5,20 +5,20 @@
   
 
   
-  <title>a=a++问题引发的思考 | Github博客</title>
+  <title>Linux常用命令 | Github博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）： 0: iconst_1  将数值1压入栈顶1: istore_1  栈顶值1存入局部变量表的第一个slot中2: iload_1   将第1个slot所存的变量放入栈顶3: iinc 1, 1  将第1个slot所存的变量自加16: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中 看到此处，应">
+  <meta name="description" content="1.#表示权限用户，$表示普通用户 2.useradd 添加一个用户 3.查看命令： ls -l ,ls -a 4.linux几种文件类型：d 表示目录； - 表示普通文件 ； l 表示连接文件 5.建立文件或目录：touch ； cat &amp;gt; ；mkdir（-m 设置权限  -p 递归创建目录） 6.拷贝文件或目录：cp ；-r（递归删除） ，-i ，-f（不出现提示消息） 7.删除文件或目">
 <meta name="keywords" content="blog">
 <meta property="og:type" content="article">
-<meta property="og:title" content="a=a++问题引发的思考">
-<meta property="og:url" content="http://yoursite.com/2018/08/16/111/index.html">
+<meta property="og:title" content="Linux常用命令">
+<meta property="og:url" content="http://yoursite.com/2018/09/12/Linux常用命令/index.html">
 <meta property="og:site_name" content="Github博客">
-<meta property="og:description" content="使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）： 0: iconst_1  将数值1压入栈顶1: istore_1  栈顶值1存入局部变量表的第一个slot中2: iload_1   将第1个slot所存的变量放入栈顶3: iinc 1, 1  将第1个slot所存的变量自加16: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中 看到此处，应">
+<meta property="og:description" content="1.#表示权限用户，$表示普通用户 2.useradd 添加一个用户 3.查看命令： ls -l ,ls -a 4.linux几种文件类型：d 表示目录； - 表示普通文件 ； l 表示连接文件 5.建立文件或目录：touch ； cat &amp;gt; ；mkdir（-m 设置权限  -p 递归创建目录） 6.拷贝文件或目录：cp ；-r（递归删除） ，-i ，-f（不出现提示消息） 7.删除文件或目">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-27T14:21:56.826Z">
+<meta property="og:updated_time" content="2018-09-12T02:41:45.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="a=a++问题引发的思考">
-<meta name="twitter:description" content="使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）： 0: iconst_1  将数值1压入栈顶1: istore_1  栈顶值1存入局部变量表的第一个slot中2: iload_1   将第1个slot所存的变量放入栈顶3: iinc 1, 1  将第1个slot所存的变量自加16: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中 看到此处，应">
+<meta name="twitter:title" content="Linux常用命令">
+<meta name="twitter:description" content="1.#表示权限用户，$表示普通用户 2.useradd 添加一个用户 3.查看命令： ls -l ,ls -a 4.linux几种文件类型：d 表示目录； - 表示普通文件 ； l 表示连接文件 5.建立文件或目录：touch ； cat &amp;gt; ；mkdir（-m 设置权限  -p 递归创建目录） 6.拷贝文件或目录：cp ；-r（递归删除） ，-i ，-f（不出现提示消息） 7.删除文件或目">
   
     <link rel="alternate" href="/atom.xml" title="Github博客" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-111" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Linux常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/16/111/" class="article-date">
-  <time datetime="2018-08-16T15:15:34.000Z" itemprop="datePublished">2018-08-16</time>
+    <a href="/2018/09/12/Linux常用命令/" class="article-date">
+  <time datetime="2018-09-12T02:41:45.000Z" itemprop="datePublished">2018-09-12</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      a=a++问题引发的思考
+      Linux常用命令
     </h1>
   
 
@@ -91,14 +91,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用javap命令解析出来的a=a++过程的字节码（int a=1; a=a++）：</p>
-<p>0: iconst_1  将数值1压入栈顶<br>1: istore_1  栈顶值1存入局部变量表的第一个slot中<br>2: iload_1   将第1个slot所存的变量放入栈顶<br>3: iinc 1, 1  将第1个slot所存的变量自加1<br>6: istore_1 将栈顶数据抛出，写入局部变量表的第1个slot中</p>
-<p>看到此处，应该恍然大悟，问题就出在iinc这条指令上，它操作的是将局部变量表中的值加一，而非是操作数栈中的变量值加一。</p>
+        <p>1.#表示权限用户，$表示普通用户</p>
+<p>2.useradd 添加一个用户</p>
+<p>3.查看命令： ls -l ,ls -a</p>
+<p>4.linux几种文件类型：d 表示目录； - 表示普通文件 ； l 表示连接文件</p>
+<p>5.建立文件或目录：touch ； cat &gt; ；mkdir（-m 设置权限  -p 递归创建目录）</p>
+<p>6.拷贝文件或目录：cp ；-r（递归删除） ，-i ，-f（不出现提示消息）</p>
+<p>7.删除文件或目录： rm ； -r ，-f</p>
+<p>8.移动或重命名目录or文件：mv ；-i；-f</p>
+<p>9.别名 alias </p>
+<p>10.权限控制：chown   文件所有者|组用户|其它用户</p>
+<p>11.显示当前目录完整路径： pwd</p>
+<p>12.cat,more,less命令：将某个文件内容显示出来</p>
+<p>cat ——&gt;把文件内容全部打印出来；more——&gt;分层显示；less——&gt;可以上下翻滚查看内容</p>
+<p>13.设置linux时间和日期：date -s</p>
+<p>14.查找文件：find；locate；whereis；where；which</p>
+<p>15.查杀进程：ps aux; ps -ef|grep; kill （-a 所有用户所有进程  -e当前用户所有进程  -f用树形格式显示）</p>
+<p>16.将程序放在后台运行 ctrl+z</p>
+<p>17.在不退出登陆得情况下切换到另一身份：su</p>
+<p>18.使普通用户执行root执行权限：sudo</p>
+<p>19.whoami；w 查看用户登陆信息；who 查看当前登陆用户；last 最近一个月用户登陆情况；groups 用户所属组</p>
+<p>20.用户历史执行命令：history</p>
+<p>21.查看linux系统信息：uname ； -a 所有信息，-r 版本号，-n 主机名</p>
+<p>22.查看并统计整体磁盘情况：df -h</p>
+<p>23.查看并统计目录情况： du -sh</p>
+<p>24.查看linux系统占用资源： top 查看后台程序 ； free -m 查看系统内存 ；uptime开机时间</p>
+<p>25.文件比较： cmp；diff</p>
+<p>26 远程操作与文件传输：ssh ；scp；</p>
+<p>27.clear、TAB</p>
+<p>28.tar -czvf ; tar -zxvf</p>
+<p>29.ifconfig </p>
+<p>30.grep -i 不区分大小写 ； -l 只输出含匹配字符的文件名； -n 显示匹配行内容及行号</p>
+<p>31.查看文件头部或尾部 ；head;tail </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/16/111/" data-id="cjlyjhv370002yw7iqmij4cvn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/12/Linux常用命令/" data-id="cjlyjhv3c0006yw7iyvbrmebs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -107,19 +136,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/08/27/为什么数组没有实现Iterable接口，但可以使用foreach语句遍历/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          为什么数组没有实现Iterable接口，但可以使用foreach语句遍历
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/16/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/09/09/Java核心技术-继承/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">Java核心技术-继承</div>
     </a>
   
 </nav>
